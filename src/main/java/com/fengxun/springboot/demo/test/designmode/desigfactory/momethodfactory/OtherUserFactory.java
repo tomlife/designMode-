@@ -1,25 +1,17 @@
 package com.fengxun.springboot.demo.test.designmode.desigfactory.momethodfactory;
 
+import com.fengxun.springboot.demo.test.designmode.desigfactory.FactoryUser;
 import com.fengxun.springboot.demo.test.designmode.desigfactory.UserFactory;
 
 /**
  * @Author: tom
  * @author为fengx
- * @Date: 2019/4/15 11:24
+ * @Date: 2019/4/15 16:40
  * @Version 1.0
  */
-public class SoEasyUser implements UserFactory {
-    private String name = "停简单用户";
-
-    public SoEasyUser() {
-
-    }
-
-
-
+public class OtherUserFactory implements FactoryUser {
     @Override
-    public String getName() {
-        return name;
+    public UserFactory onCreate() {
+        return new OtherUser();
     }
-
 }

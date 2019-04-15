@@ -11,7 +11,6 @@ import com.fengxun.springboot.demo.test.designmode.desigfactory.UserFactory;
 public class OtherUser  implements UserFactory {
     private String name = "其他用户";
     public OtherUser() {
-        System.out.println(name);
     }
 
     @Override

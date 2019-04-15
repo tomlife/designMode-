@@ -1,12 +1,17 @@
 package com.fengxun.springboot.demo.test.designmode;
 
-import com.fengxun.springboot.demo.test.designmode.desigfactory.momethodfactory.FactoryUser1;
-import com.fengxun.springboot.demo.test.designmode.desigfactory.momethodfactory.FactoryUser2;
+import com.fengxun.springboot.demo.test.designmode.desigfactory.FactoryUser;
+import com.fengxun.springboot.demo.test.designmode.desigfactory.absfactory.UserBehavior;
+import com.fengxun.springboot.demo.test.designmode.desigfactory.momethodfactory.OtherUserFactory;
+import com.fengxun.springboot.demo.test.designmode.desigfactory.momethodfactory.SoEasyFactory;
+import com.fengxun.springboot.demo.test.designmode.desigfactory.momethodfactory.SoEasyUser;
+import com.fengxun.springboot.demo.test.designmode.desigfactory.soeasyfactory.FactoryUser1;
+import com.fengxun.springboot.demo.test.designmode.desigfactory.soeasyfactory.FactoryUser2;
 import com.fengxun.springboot.demo.test.designmode.desigfactory.soeasyfactory.OtherUser;
-import com.fengxun.springboot.demo.test.designmode.desigfactory.soeasyfactory.SoEasyUser;
+
 import com.fengxun.springboot.demo.test.designmode.desigfactory.UserFactory;
 
-import javax.print.attribute.standard.MediaSize;
+import java.util.Calendar;
 
 /**
  * @Author: tom
@@ -25,11 +30,19 @@ public class TestDemo {
         name = factoryUser1.onCreate("其他").getName();
         System.out.println(name);
 
-
         FactoryUser2 factoryUser2 = new FactoryUser2();
         String name1 = factoryUser2.onCreate(SoEasyUser.class).getName();
         System.out.println(name1);
         UserFactory userFactory = factoryUser2.onCreate(OtherUser.class);
         System.out.println(userFactory.getName());
+
+        System.out.println("  一下是 简单方法工厂  ");
+        FactoryUser soEasyFactory = new SoEasyFactory();
+        name = soEasyFactory.onCreate().getName();
+        System.out.println(name);
+        FactoryUser otherUserFactory = new OtherUserFactory();
+        name = otherUserFactory.onCreate().getName();
+        System.out.println(name);
+
     }
 }

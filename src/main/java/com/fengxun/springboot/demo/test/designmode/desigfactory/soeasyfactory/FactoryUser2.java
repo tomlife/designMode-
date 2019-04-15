@@ -1,4 +1,4 @@
-package com.fengxun.springboot.demo.test.designmode.desigfactory.momethodfactory;
+package com.fengxun.springboot.demo.test.designmode.desigfactory.soeasyfactory;
 
 import com.fengxun.springboot.demo.test.designmode.desigfactory.UserFactory;
 

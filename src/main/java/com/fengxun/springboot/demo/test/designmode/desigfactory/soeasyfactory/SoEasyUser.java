@@ -8,12 +8,14 @@ import com.fengxun.springboot.demo.test.designmode.desigfactory.UserFactory;
  * @Date: 2019/4/15 11:24
  * @Version 1.0
  */
-public class SoEasyUser  implements UserFactory {
+public class SoEasyUser implements UserFactory {
     private String name = "停简单用户";
 
     public SoEasyUser() {
-        System.out.println(name);
+
     }
+
+
 
     @Override
     public String getName() {

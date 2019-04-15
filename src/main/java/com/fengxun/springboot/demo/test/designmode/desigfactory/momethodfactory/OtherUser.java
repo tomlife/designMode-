@@ -8,10 +8,9 @@ import com.fengxun.springboot.demo.test.designmode.desigfactory.UserFactory;
  * @Date: 2019/4/15 14:11
  * @Version 1.0
  */
-public class OtherUser  implements UserFactory {
+public class OtherUser   implements UserFactory {
     private String name = "其他用户";
     public OtherUser() {
-
     }
 
     @Override
