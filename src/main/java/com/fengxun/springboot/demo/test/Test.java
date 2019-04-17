@@ -33,8 +33,18 @@ public class Test {
         objectInputStream.close();
 
         System.out.println( instance == o);
-        Class<?> cl = Class.forName(HungrySingleton.class.getName());
-        Method readResolve = getInheritableMethod(cl, "readResolve", null, Object.class);
+
+        System.out.println(" 线程单例 模式  ");
+        ThreadLocalSingleton instance1 = ThreadLocalSingleton.getInstance();
+        ThreadLocalSingleton instance2 = ThreadLocalSingleton.getInstance();
+        ThreadLocalSingleton instance3 = ThreadLocalSingleton.getInstance();
+        System.out.println(instance1);
+        System.out.println(instance2);
+        System.out.println(instance3);
+
+        System.out.println("**************************");
+        new Thread(new ThreadExecute()).start();
+        new Thread(new ThreadExecute()).start();
 
     }
     private static Method getInheritableMethod(Class<?> cl, String name,
@@ -90,6 +100,6 @@ public class Test {
 class ThreadExecute implements Runnable {
     @Override
     public void run() {
-        System.out.println("instance = " + LazyHolderSingleton.getInstance());
+        System.out.println("instance  ***   = " + ThreadLocalSingleton.getInstance());
     }
 }

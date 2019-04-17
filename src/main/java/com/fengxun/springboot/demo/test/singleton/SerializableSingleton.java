@@ -20,7 +20,7 @@ public class SerializableSingleton implements Serializable {
         private static SerializableSingleton serializableSingleton = new SerializableSingleton();
     }
 
-   public Object  readResolve(){
+    public Object readResolve() {
         return SerializableHolder.serializableSingleton;
-   }
+    }
 }
