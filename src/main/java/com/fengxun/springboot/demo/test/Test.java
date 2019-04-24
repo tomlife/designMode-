@@ -32,7 +32,7 @@ public class Test {
         SerializableSingleton o = (SerializableSingleton) objectInputStream.readObject();
         objectInputStream.close();
 
-        System.out.println( instance == o);
+        System.out.println(instance == o);
 
         System.out.println(" 线程单例 模式  ");
         ThreadLocalSingleton instance1 = ThreadLocalSingleton.getInstance();
@@ -45,12 +45,21 @@ public class Test {
         System.out.println("**************************");
         new Thread(new ThreadExecute()).start();
         new Thread(new ThreadExecute()).start();
+        System.out.println("************************** 枚举 *********************");
+        HungrySingleton instance41 = EnumSingleton.SINGLETON.getInstance();
+        HungrySingleton instance42 = EnumSingleton.SINGLETON.getInstance();
+        HungrySingleton instance43 = EnumSingleton.SINGLETON.getInstance();
+        HungrySingleton instance44 = EnumSingleton.SINGLETON.getInstance();
+        new Thread(new ThreadExecute()).start();
+        new Thread(new ThreadExecute()).start();
+
 
     }
-    private static Method getInheritableMethod(Class<?> cl, String name,
+
+
+     private static Method getInheritableMethod(Class<?> cl, String name,
                                                Class<?>[] argTypes,
-                                               Class<?> returnType)
-    {
+                                               Class<?> returnType) {
         Method meth = null;
         Class<?> defCl = cl;
         while (defCl != null) {
@@ -77,6 +86,7 @@ public class Test {
             return packageEquals(cl, defCl) ? meth : null;
         }
     }
+
     /**
      * Returns true if classes are defined in the same runtime package, false
      * otherwise.
@@ -85,6 +95,7 @@ public class Test {
         return (cl1.getClassLoader() == cl2.getClassLoader() &&
                 getPackageName(cl1).equals(getPackageName(cl2)));
     }
+
     private static String getPackageName(Class<?> cl) {
         String s = cl.getName();
         int i = s.lastIndexOf('[');
@@ -100,6 +111,6 @@ public class Test {
 class ThreadExecute implements Runnable {
     @Override
     public void run() {
-        System.out.println("instance  ***   = " + ThreadLocalSingleton.getInstance());
+        System.out.println("instance  ***   = " + EnumSingleton.SINGLETON.getInstance());
     }
 }

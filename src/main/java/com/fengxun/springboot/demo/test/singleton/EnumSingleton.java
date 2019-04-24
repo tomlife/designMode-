@@ -9,13 +9,8 @@ package com.fengxun.springboot.demo.test.singleton;
 public enum EnumSingleton {
     SINGLETON;;
     private HungrySingleton hungrySingleton;
-
-    public HungrySingleton getHungrySingleton() {
-        return hungrySingleton;
-    }
-
-    public static EnumSingleton getInstance() {
-        return SINGLETON;
+    public   HungrySingleton getInstance() {
+        return HungrySingleton.getInstance();
     }
 
 }

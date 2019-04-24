@@ -8,6 +8,6 @@ import java.lang.reflect.Method;
  * @Date: 2019/4/17 17:09
  * @Version 1.0
  */
-public interface JJInvocatonHandler {
+public interface JJInvocationHandler {
     Object invoke(Object object, Method method, Object[] ags) throws Throwable;
 }

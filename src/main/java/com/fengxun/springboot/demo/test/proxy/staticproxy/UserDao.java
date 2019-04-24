@@ -1,5 +1,7 @@
 package com.fengxun.springboot.demo.test.proxy.staticproxy;
 
+import java.io.Serializable;
+
 /**
  * @Author: tom
  * @author为fengx
@@ -7,7 +9,7 @@ package com.fengxun.springboot.demo.test.proxy.staticproxy;
  * @Version 1.0
  * 被代理对象
  */
-public class UserDao  implements UserServiceProxy {
+public class UserDao  implements UserServiceProxy   {
 
     @Override
     public int deleteUser() {

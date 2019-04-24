@@ -1,8 +1,7 @@
 package com.fengxun.springboot.demo.test.proxy.dynamicproxy;
 
 import com.fengxun.springboot.demo.test.proxy.staticproxy.UserServiceProxy;
-import sun.security.jca.GetInstance;
-
+import sun.misc.ProxyGenerator;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -27,9 +26,12 @@ public class DynamicJDKUserServiceProxy implements InvocationHandler ,UserServic
     }
 
 
+
+
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         System.out.println(" 自定义  之前");
+
         Object invoke = method.invoke(this.proxy,args);
         System.out.println(" 自定义  之后");
         return invoke;
