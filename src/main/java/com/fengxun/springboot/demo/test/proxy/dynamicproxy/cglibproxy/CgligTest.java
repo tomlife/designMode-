@@ -1,6 +1,8 @@
 package com.fengxun.springboot.demo.test.proxy.dynamicproxy.cglibproxy;
 
-import org.springframework.cglib.core.DebuggingClassWriter;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * @Author: tom
@@ -10,14 +12,12 @@ import org.springframework.cglib.core.DebuggingClassWriter;
  */
 public class CgligTest {
     public static void main(String[] args) {
-        String key = DebuggingClassWriter.DEBUG_LOCATION_PROPERTY;
-        String value = "E:/cglib_proxy_class/";
-        System.setProperty(key, value);
+
         JJCglibMeipo JJCglibMeipo = new JJCglibMeipo();
         CustomPerson instance = (CustomPerson) JJCglibMeipo.getInstance(CustomPerson.class);
         instance.findLove();
 
 
-
     }
+
 }

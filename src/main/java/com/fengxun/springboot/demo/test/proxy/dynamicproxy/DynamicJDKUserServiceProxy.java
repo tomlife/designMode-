@@ -13,7 +13,7 @@ import java.lang.reflect.Proxy;
  * @Date: 2019/4/17 14:57
  * @Version 1.0
  */
-public class DynamicJDKUserServiceProxy implements InvocationHandler ,UserServiceProxy{
+public class DynamicJDKUserServiceProxy implements InvocationHandler   {
     private UserServiceProxy proxy;
     public Object getInstance(UserServiceProxy proxy){
         this.proxy= proxy;
@@ -37,9 +37,5 @@ public class DynamicJDKUserServiceProxy implements InvocationHandler ,UserServic
         return invoke;
     }
 
-    @Override
-    public int deleteUser() {
-        System.out.println("   看来我猜的没错了    ");
-        return 0;
-    }
+
 }

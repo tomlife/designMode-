@@ -19,14 +19,15 @@ public class ProxyDemo {
         /**
          * 静态代理方式
          */
-        RootProxy rootProxy = new RootProxy(new OtherProxy());
-        rootProxy.add();
+        EasyProxy easyProxy = new EasyProxy();
+        OtherProxy otherProxy = new OtherProxy();
+        RootProxy rootProxy = new RootProxy(easyProxy);
+        rootProxy.update();
         System.out.println("------------------------------------分隔符---------------------------------------------");
         UserServiceImp userServiceImp = new UserServiceImp(new UserDao());
         userServiceImp.deleteUser();
         System.out.println("------------------------------------***分隔符***---------------------------------------------");
         UserServiceProxy instance = (UserServiceProxy) new DynamicJDKUserServiceProxy().getInstance(new UserDao());
-
         instance.deleteUser();
 
         char ca = 12;
@@ -39,7 +40,7 @@ public class ProxyDemo {
         //   deleteUser()  this.h.invoke(
 
 
-/*        System.out.println(" 准备开始写对象");
+/*      System.out.println(" 准备开始写对象");
         String clazzName = "$Proxy0";
         byte[] bytes = ProxyGenerator.generateProxyClass(clazzName, new Class[]{UserDao.class});
         FileOutputStream fileOutputStream = new FileOutputStream(new File("$Proxy0.class"));
@@ -51,7 +52,6 @@ public class ProxyDemo {
         JJDynamicJDKUserServiceProxy jjDynamicJDKUserServiceProxy = new JJDynamicJDKUserServiceProxy();
         UserServiceProxy instance2 = (UserServiceProxy) jjDynamicJDKUserServiceProxy.getInstance(new UserDao());
         instance2.deleteUser();
-
 
 
     }
