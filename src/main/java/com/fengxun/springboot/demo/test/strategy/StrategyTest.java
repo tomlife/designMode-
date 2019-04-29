@@ -15,5 +15,7 @@ public class StrategyTest {
 //      PayState pay = otherEasyUser.pay();
         PayState pay = otherEasyUser.pay(PayFactory.PayKey.JD_PAY,amoun);
         System.out.println(pay.toString());
+        String jdpay = PayKey1.JD_PAY.getJdpay();
+        System.out.println(jdpay);
     }
 }

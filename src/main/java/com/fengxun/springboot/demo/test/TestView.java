@@ -6,13 +6,29 @@ package com.fengxun.springboot.demo.test;
  * @Date: 2019/4/18 14:31
  * @Version 1.0
  */
-public final class TestView {
-    private static TestView2 testView = new TestView2();
-    public TestView() {
-        System.out.println("构造");
+public class TestView {
+    public   int age;
+    public String name;
+
+    public int getAge() {
+        return age;
     }
 
-    static {
-        System.out.println(" static 进行操作  ");
+    public void setAge(int age) {
+        this.age = age;
     }
+
+    public TestView(int age, String name) {
+        this.age = age;
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "TestView{" +
+                "age=" + age +
+                ", name=" + name +
+                '}';
+    }
+
 }
